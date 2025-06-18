@@ -66,9 +66,11 @@ Makes it easy to visually check how well the trend line fits the real data.
 
 
 Tech Stack:
-Tool	              Purpose
-Python 3	          Main programming language
-yfinance	          Fetches live historical stock data
-scikit-learn	      Linear Regression model
-Matplotlib	        Data visualization
-Streamlit	          Turns Python code into an interactive web app
+| Tool             | Purpose                                       |
+| ---------------- | --------------------------------------------- |
+| **Python 3**     | Main programming language                     |
+| **yfinance**     | Fetches live historical stock data            |
+| **scikit-learn** | Linear Regression model                       |
+| **Matplotlib**   | Data visualization                            |
+| **Streamlit**    | Turns Python code into an interactive web app |
+
