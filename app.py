@@ -6,15 +6,15 @@ from sklearn.linear_model import LinearRegression
 import numpy as np
 import matplotlib.pyplot as plt
 
-# 1️⃣ App title
+# App title
 st.title("📈 Stock Price Trend Predictor")
 
-# 2️⃣ User input: Stock Symbol
+# User input: Stock Symbol
 symbol = st.text_input("Enter Stock Symbol (e.g. RELIANCE.NS, AAPL):")
 
 if st.button("Predict Trend"):
     try:
-        # 3️⃣ Fetch data
+        # Fetch data
         ticker = yf.Ticker(symbol)
         df = ticker.history(period="60d", interval="1d").reset_index()
         df = df[['Date', 'Close']].tail(30)
@@ -26,7 +26,7 @@ if st.button("Predict Trend"):
             X = df['Day_Index'].values.reshape(-1, 1)
             y = df['Close'].values
 
-            # 4️⃣ Train model
+            # Train model
             model = LinearRegression()
             model.fit(X, y)
 
@@ -34,7 +34,7 @@ if st.button("Predict Trend"):
             predicted_price = model.predict(next_day)
             today_price = y[-1]
 
-            # 5️⃣ Show prediction
+            # Show prediction
             st.subheader(f"Predicted Next Day Closing Price: {predicted_price[0]:.2f}")
 
             if predicted_price[0] > today_price:
@@ -42,7 +42,7 @@ if st.button("Predict Trend"):
             else:
                 st.warning("Trend: 📉 Likely DOWN")
 
-            # 6️⃣ Plot
+            # Plot
             fig, ax = plt.subplots()
             ax.plot(X, y, label='Actual Prices', marker='o')
             ax.plot(X, model.predict(X), label='Trend Line', color='red')
