@@ -74,3 +74,11 @@ Tech Stack:
 | **Matplotlib**   | Data visualization                            |
 | **Streamlit**    | Turns Python code into an interactive web app |
 
+
+## Run Locally
+
+```bash
+git clone https://github.com/ogrk/StockTrendApp.git
+cd StockTrendApp
+pip install yfinance scikit-learn streamlit matplotlib
+streamlit run app.py
